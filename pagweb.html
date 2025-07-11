@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSISV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(#e3f2fd, #ede7f6);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #5e35b1;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .intro-flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .intro-text {
+            flex: 1;
+            min-width: 280px;
+        }
+        .imagen-inicio {
+            max-width: 300px;
+            height: auto;
+        }
+        section {
+            padding: 50px 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h2 {
+            color: #4527a0;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .timeline-item {
+            background-color: #ffffffcc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .timeline-item:hover {
+            background-color: #d1c4e9;
+            transform: scale(1.02);
+        }
+        .timeline-item a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        .genre-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+        }
+        .genre-card {
+            flex: 0 0 auto;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .genre-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .genre-description {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            background: #f3e5f5;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: left;
+        }
+        .genre-name {
+            margin-top: 8px;
+            font-weight: bold;
+            color: #5e35b1;
+        }
+        blockquote {
+            background-color: #d1c4e9;
+            padding: 15px;
+            font-style: italic;
+        }
+        footer {
+            text-align: center;
+            background-color: #5e35b1;
+            color: white;
+            padding: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #7e57c2;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MUSISV</h1>
+    </header>
+
+    <section>
+        <h2 style="color: #4B0082;">1. Introducción: La música como motor del cambio</h2>
+        <div class="intro-flex">
+            <div class="intro-text">
+                <p>
+                    La música ha acompañado las luchas sociales, ha alzado la voz de los sin voz y ha servido como una forma de identidad cultural, protesta y esperanza. Desde los espirituales afroamericanos hasta los himnos de la contracultura, la música ha cambiado el mundo.
+                </p>
+            </div>
+            <img src="imagenes/inicio.png" alt="Imagen de introducción" class="imagen-inicio">
+        </div>
+    </section>
+
+    <section style="padding-top: 0px;">
+        <h2>2. Cronología interactiva</h2>
+        <div class="timeline">
+            <div class="timeline-item"><a href="https://youtu.be/D2TUlUwa3_o" target="_blank"><strong>1910-1920:</strong> Jazz y la liberación cultural en EE.UU.</a></div>
+            <div class="timeline-item"><a href="https://youtu.be/Web007rzSOI?si=ypi7_Rll7hAWGD0l" target="_blank"><strong>1940-1950:</strong> Blues y derechos civiles - "Strange Fruit" de Billie Holiday.</a></div>
+            <div class="timeline-item"><a href="https://www.youtube.com/watch?v=C3_0GqPvr4U" target="_blank"><strong>1960:</strong> Rock y contracultura - "Give Peace a Chance".</a></div>
+            <div class="timeline-item"><a href="https://youtu.be/IxaSqKelRro?si=3xYi6RK_CM5sEeWl" target="_blank"><strong>1980-1990:</strong> Hip-hop y desigualdad - Public Enemy, N.W.A.</a></div>
+            <div class="timeline-item"><a href="https://youtu.be/WDZJPJV__bQ?si=n5xBuYBOzyDsqjXp" target="_blank"><strong>2000-2020:</strong> Música y activismo global - Kendrick Lamar, Beyoncé.</a></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Géneros musicales y su impacto</h2>
+        <div class="genre-container">
+            <div class="genre-card" onclick="toggleDescription('jazz-desc')">
+                <img src="imagenes/jazz.jpg" alt="Jazz">
+                <div class="genre-name">Jazz</div>
+                <div class="genre-description" id="jazz-desc">Surgido de comunidades afroamericanas, el jazz simbolizó libertad creativa y resistencia. Fue una voz potente en la lucha contra la segregación racial.</div>
+            </div>
+            <div class="genre-card" onclick="toggleDescription('rock-desc')">
+                <img src="imagenes/rock.jpg" alt="Rock">
+                <div class="genre-name">Rock</div>
+                <div class="genre-description" id="rock-desc">El rock fue el himno de la contracultura, cuestionó el poder y se volvió símbolo de rebelión juvenil y política.</div>
+            </div>
+            <div class="genre-card" onclick="toggleDescription('blues-desc')">
+                <img src="imagenes/blues.jpg" alt="Blues">
+                <div class="genre-name">Blues</div>
+                <div class="genre-description" id="blues-desc">Nacido del sufrimiento afroamericano, el blues dio voz al dolor, la pérdida y la esperanza en tiempos de opresión.</div>
+            </div>
+            <div class="genre-card" onclick="toggleDescription('reggae-desc')">
+                <img src="imagenes/reggae.jpg" alt="Reggae">
+                <div class="genre-name">Reggae</div>
+                <div class="genre-description" id="reggae-desc">Influenciado por el rastafarianismo, el reggae promovió la paz, unidad y resistencia frente a la injusticia social y colonial.</div>
+            </div>
+            <div class="genre-card" onclick="toggleDescription('hiphop-desc')">
+                <img src="imagenes/Hip Hop.png" alt="K-Pop">
+                <div class="genre-name">Hip-Hop</div>
+                <div class="genre-description" id="hiphop-desc">Movimiento urbano nacido en el Bronx, el hip-hop denunció la violencia, el racismo y la pobreza desde los márgenes de la ciudad.</div>
+            </div>
+            <div class="genre-card" onclick="toggleDescription('kpop-desc')">
+                <img src="imagenes/kpop.png" alt="K-Pop">
+                <div class="genre-name">K-Pop</div>
+                <div class="genre-description" id="kpop-desc">Más que pop coreano, el K-Pop ha inspirado a jóvenes globalmente con mensajes de salud mental, justicia e inclusión.</div>
+            </div>
+        </div>
+        <script>
+            function toggleDescription(id) {
+                const desc = document.getElementById(id);
+                desc.style.display = desc.style.display === "block" ? "none" : "block";
+            }
+        </script>
+    </section>
+
+    <section>
+        <h2>4. Canciones que cambiaron el mundo</h2>
+        <ul>
+            <li><a href="https://youtu.be/-DGY9HvChXk?si=80b3Q9HTltQJooYi">"Strange Fruit" – Billie Holiday:</a> Protesta contra el racismo (1939).</li>
+            <li><a href="https://youtu.be/VOgFZfRVaww?si=uMIIfr3wHfGWluNS">"Imagine" – John Lennon:</a> Utopía de paz global (1971).</li>
+            <li><a href="https://youtu.be/MMFj8uDubsE?si=RAi2I29LLcgCSBM5">"Blowin' in the Wind" – Bob Dylan:</a> Himno pacifista (1962).</li>
+            <li><a href="https://youtu.be/mmo3HFa2vjg?si=_Uts3h_E7ZOhMjzQ">"Fight the Power" – Public Enemy:</a> Contra el racismo estructural (1989).</li>
+            <li><a href="https://youtu.be/WDZJPJV__bQ?si=I2SzA2npnfGLwY8S">"Formation" – Beyoncé:</a> Empoderamiento negro (2016).</li>
+            <li><a href="https://youtu.be/Z-48u_uWMHY?si=BORJym2jl9eOFEA7">"Alright" – Kendrick Lamar:</a> Contra la brutalidad policial (2015).</li>
+            <li><a href="https://youtu.be/xEeFrLSkMm8?si=7zJdKr3icZM_C-zt">"Spring Day" – BTS:</a> Homenaje a la pérdida y esperanza (2017).</li>
+            <li><a href="https://youtu.be/9DwzBICPhdM?si=if2f2pN6kSjDSPwF">"Not Today" – BTS:</a> Llamado a la resistencia (2017).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Entrevistas y testimonios</h2>
+        <blockquote>"El hip-hop no solo cambió el sonido de una generación, cambió su conciencia." – Profesor de sociología, 1999</blockquote>
+        <blockquote>"La música siempre ha sido un arma para luchar con belleza." – Artista callejera, 2020</blockquote>
+        <blockquote>"El K-Pop me hizo sentir que no estaba sola. Gracias a sus mensajes, encontré fuerza para hablar." – Fan latinoamericana, 2021</blockquote>
+    </section>
+
+    <section>
+        <h2>6. Impacto global: Música como lenguaje universal</h2>
+        <p>La música rompe fronteras. Eventos como Live Aid en 1985 o la caída del Muro de Berlín mostraron que el arte sonoro une más que separa.</p>
+        <p>En la era digital, fenómenos como el K-Pop han unido fans de distintos países, creando comunidades globales que no solo comparten cultura, sino también luchas sociales comunes.</p>
+    </section>
+
+    <section>
+        <h2>7. Conclusión: ¿Qué nos depara el futuro?</h2>
+        <p>La música seguirá siendo una herramienta poderosa para expresar lo que las palabras a veces no alcanzan. ¿Qué género será la voz de la próxima revolución?</p>
+    </section>
+
+    <section>
+        <h2>Actividad de cierre: ¿Reconoces esta canción?</h2>
+        <video width="640" height="360" controls>
+            <source src="video/imagine.mp4" type="video/mp4">
+        </video>
+    <div class="botones">
+        <button onclick="checkAnswer('Strange Fruit')">Strange Fruit – Billie Holiday</button>
+        <button onclick="checkAnswer('Imagine')">Imagine – John Lennon</button>
+        <button onclick="checkAnswer('Formation')">Formation – Beyoncé</button>
+    </div>
+        <p id="respuesta"></p>
+        <script>
+
+            function checkAnswer(answer) {
+                const correct = "Imagine";
+                const mensaje = document.getElementById("respuesta");
+                if (answer === correct) {
+                    mensaje.textContent = "🎉 ¡Correcto! Es de 'Imagine' – John Lennon.";
+                    mensaje.style.color = "green";
+                } else {
+                    mensaje.textContent = "❌ Incorrecto. Era 'Imagine' – John Lennon.";
+                    mensaje.style.color = "red";
+                }
+            }
+        </script>
+
+    </section>
+
+    <footer>
+        <p>2025 - Música y Cambio Social.<br> Jezebel Dominguez, Allison Valdez, Regina Cañas y Giselle Cubias</p>
+    </footer>
+</body>
+</html>
